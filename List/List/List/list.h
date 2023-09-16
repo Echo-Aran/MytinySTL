@@ -20,7 +20,7 @@ namespace mystl
 
 	};
 
-	//List的迭代器：本质指针
+	//List的迭代器：本质指针,指向链表节点
 	template<class T,class Ref,class Ptr>
 	class list_iterator
 	{
