@@ -25,8 +25,7 @@ namespace mystl
 	class list_iterator
 	{
 		typedef listNode<T> Node;
-		// typedef __list_iterator<T, T&, T*> iterator;
-		// typedef __list_iterator<T, const T&, const T*> const_iterator;
+	
 	public:
 		Node* _pnode;
 
@@ -44,7 +43,6 @@ namespace mystl
 			return &(_pnode->_val);
 		}
 
-		
 		typedef list_iterator<T, Ref, Ptr> Self;
 		Self& operator++()
 		{
@@ -183,6 +181,18 @@ namespace mystl
 		{
 			return _head;
 		}
+		//之前iterator那个测试不能正常跑起来是因为没有写下面这两个
+		//没有写const迭代器的方法
+		const_iterator begin()const
+		{
+			return _head->_next;
+		}
+		const_iterator end()const
+		{
+			return _head;
+		}
+
+
 		const_iterator cbegin()const
 		{
 			return _head->_next;
@@ -192,18 +202,7 @@ namespace mystl
 			return _head;
 		}
 
-		//之前iterator那个测试不能正常跑起来是因为没有写下面这两个
-		iterator begin()const
-		{
-			return _head->_next;
-		}
-		iterator end()const
-		{
-			return _head;
-		}
-
-
-
+		
 		reverse_iterator rbegin()
 		{
 			return reverse_iterator(end());
@@ -212,12 +211,10 @@ namespace mystl
 		{
 			return reverse_iterator(begin());
 		}
-
 		const_reverse_iterator crbegin()const
 		{
 			return const_reverse_iterator(cend());
 		}
-
 		const_reverse_iterator crend()const
 		{
 			return const_reverse_iterator(cbegin());
