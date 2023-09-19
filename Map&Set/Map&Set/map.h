@@ -42,6 +42,13 @@ namespace mystl
 			return _t.Insert(kv);
 		}
 
+		V& operator[](const K& key)
+		{
+			pair<iterator, bool> ret = Insert(make_pair(key, V()));
+			return ret.first->second;
+		}
+
+
 	private:
 		RBTree<K,pair<K,V>,mapKeyOfT> _t;
 

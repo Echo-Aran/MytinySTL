@@ -52,7 +52,7 @@ struct _TreeIterator
 	//T* operator->()
 	Ptr operator->()
 	{
-		return &(_node->_data);
+		return &_node->_data;
 	}
 	bool operator!=(const Self& s)const
 	{

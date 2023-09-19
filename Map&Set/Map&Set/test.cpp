@@ -1,5 +1,6 @@
 #include"map.h"
 #include"set.h"
+#include<string>
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
 	m.Insert(make_pair(7, 3));
 	m.Insert(make_pair(8, 5));
 	m.Insert(make_pair(4, 6));
+	//m[4] = 4;
 
 	auto mit = m.begin();
 	while (mit != m.end())
@@ -52,7 +54,27 @@ int main()
 	}
 	cout << endl; */
 
+	
+	//?????????????????为什么一定要写const string，写string显示类型不匹配
+	mystl::Map<const string, string> dict;
+	dict.Insert(make_pair("sort", "xxx"));
+	dict["left"]; // 插入
 
+	for (const auto& kv : dict)
+	{
+		cout << kv.first << ":" << kv.second << endl;
+	}
+	//cout << endl;
+
+	dict["left"] = "左边"; // 修改
+	dict["sort"] = "排序"; // 修改
+	dict["right"] = "右边"; // 插入+修改
+
+	for (auto& kv : dict)
+	{
+		cout << kv.first << ":" << kv.second << endl;
+	}
+	cout << endl;
 
 	return 0;
 }
