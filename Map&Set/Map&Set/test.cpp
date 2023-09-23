@@ -55,7 +55,6 @@ int main()
 	cout << endl; */
 
 	
-	//?????????????????为什么一定要写const string，写string显示类型不匹配
 	mystl::Map<const string, string> dict;
 	dict.Insert(make_pair("sort", "xxx"));
 	dict["left"]; // 插入

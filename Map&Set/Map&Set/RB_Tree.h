@@ -30,8 +30,8 @@ struct RBTreeNode
 template<class T,class Ref,class Ptr>
 struct _TreeIterator
 {
-	typedef RBTreeNode<T> Node;//??????????????????为什么要对iterator进行封装?而不是写Node*
-	typedef _TreeIterator<T,Ref,Ptr> Self;//?????????为什么要加一个self？？？？？和list的相同之处
+	typedef RBTreeNode<T> Node;
+	typedef _TreeIterator<T,Ref,Ptr> Self;
 	Node* _node;
 
 	typedef _TreeIterator<T, T&, T*> iterator;
@@ -226,12 +226,12 @@ public:
 				cur = cur->_left;
 			}
 			else {
-				return make_pair(iterator(nullptr), false);
+				return make_pair(iterator(cur), false);
 			}
 		}
 
 		cur = new Node(data);
-		Node* newnode = cur;//记录newnode的位置，之后ur会变
+		Node* newnode = cur;//记录newnode的位置，之后cur会变
 		cur->_color = Red;
 		
 		if (kot(cur->_data) < kot(parent->_data)) {
